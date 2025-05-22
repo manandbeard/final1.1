@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Ovo&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 20%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 0 0% 45%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 20%;
+  --border: 0 0% 85%;
+  --input: 0 0% 85%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 0 0% 20%;
+  --radius: 0.75rem;
+
+  /* Calendar colors */
+  --coral: 7 88% 77%;
+  --sage: 105 19% 73%;
+  --sky: 199 56% 76%;
+  --lavender: 280 28% 75%;
+  --yellow: 43 64% 77%;
+
+  /* Custom color slots */
+  --text-gray: 0 0% 48%;
+  --divider-gray: 0 0% 85%;
+  --rich-black: 0 0% 7%;
+  --off-white: 0 0% 98%;
+  --light-gray: 0 0% 94%;
+
+  /* Font sizes */
+  --font-size-base: 16px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    font-family: 'Ovo', Georgia, 'Times New Roman', serif;
+    @apply bg-[#FAFAFA] text-foreground;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@layer components {
+  .day-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  .meal-section {
+    @apply border-b border-[#DADADA] py-2 px-4 bg-[#F0F0F0];
+  }
+
+  .photo-fade {
+    transition: opacity 0.75s ease-in-out;
+  }
+
+  .photo-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .settings-panel {
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .settings-panel.active {
+    transform: translateX(0);
+  }
+
+  /* Color swatches */
+  .color-swatch {
+    @apply w-8 h-8 rounded-full inline-block mr-2 cursor-pointer border-2 border-transparent;
+  }
+  
+  .color-swatch.selected {
+    @apply border-[#555555];
+  }
+}
